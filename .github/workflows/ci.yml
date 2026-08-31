@@ -74,3 +74,4 @@ jobs:
           kubectl get pods
           kubectl get deployment cicd-demo-app -o wide
           kubectl get service cicd-demo-service
+
