@@ -30,3 +30,7 @@ jobs:
       - name: Run automated tests
         run: |
           pytest demo_web_app/tests -v
+
+      - name: Build Docker image
+        run: |
+          docker build -t cicd-demo-app:ci ./demo_web_app
