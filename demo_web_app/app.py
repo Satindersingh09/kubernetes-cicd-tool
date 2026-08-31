@@ -10,7 +10,7 @@ def home():
 
 @app.route("/health")
 def health():
-    return {"status": "healthy", "service": "cicd-demo-app", "version": "v3"}, 200
+    return {"status": "healthy", "service": "cicd-demo-app", "version": "v4"}, 200
 
 
 if __name__ == "__main__":
