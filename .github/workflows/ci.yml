@@ -8,8 +8,12 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  test:
+  test-and-build:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,6 +35,19 @@ jobs:
         run: |
           pytest demo_web_app/tests -v
 
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build Docker image
         run: |
-          docker build -t cicd-demo-app:ci ./demo_web_app
+          docker build \
+            -t ghcr.io/${{ github.repository_owner }}/cicd-demo-app:latest \
+            ./demo_web_app
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository_owner }}/cicd-demo-app:latest
