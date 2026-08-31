@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Demo Application</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+        }
+
+        .status {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 18px;
+            border-radius: 20px;
+            background: #dcfce7;
+            color: #166534;
+            font-weight: bold;
+        }
+
+        .pipeline {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .stage {
+            padding: 18px 10px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            background: #fafafa;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 700px) {
+            .pipeline {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kubernetes CI/CD Demo Application</h1>
+
+        <p>
+            This application is deployed automatically through
+            our CI/CD automation pipeline.
+        </p>
+
+        <div class="status">
+            ● Application Running
+        </div>
+
+        <div class="pipeline">
+            <div class="stage">
+                <div class="icon">🧪</div>
+                <strong>Testing</strong>
+                <p>Automated tests</p>
+            </div>
+
+            <div class="stage">
+                <div class="icon">📦</div>
+                <strong>Docker</strong>
+                <p>Container build</p>
+            </div>
+
+            <div class="stage">
+                <div class="icon">⚙️</div>
+                <strong>Terraform</strong>
+                <p>Infrastructure</p>
+            </div>
+
+            <div class="stage">
+                <div class="icon">☸️</div>
+                <strong>Kubernetes</strong>
+                <p>Deployment</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
